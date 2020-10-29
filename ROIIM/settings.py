@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
+import django_on_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -124,3 +125,6 @@ STATIC_URL = '/static/'
 
 #for heroku deployment
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+#Activate Django-heroku
+django_on_heroku.settings(locals())
