@@ -8,11 +8,7 @@
             <div class="jumbotron">
 
         {% if user.is_authenticated %}
-            <h3>Please Pay</h3>
-
-            <div>
-
-            </div>
+            <h4>Please Pay</h4>
 
             <div>
                 <button onclick="checkout()"> Pay ${{ total_amount }}</button>
@@ -20,7 +16,7 @@
 
 
         {% else %}
-            <h1>Welcome to the ROIIM !</h1>
+            <h1>Welcome to the ROIIM!</h1>
 
         {% endif %}
             </div>
@@ -33,6 +29,7 @@
             paysafe.checkout.setup("cHJpdmF0ZS03NzUxOkItcWEyLTAtNWYwMzFjZGQtMC0zMDJkMDIxNDQ5NmJlODQ3MzJhMDFmNjkwMjY4ZDNiOGViNzJlNWI4Y2NmOTRlMjIwMjE1MDA4NTkxMzExN2YyZTFhODUzMTUwNWVlOGNjZmM4ZTk4ZGYzY2YxNzQ4", {
                 "currency": "USD",
                 "amount": {{total_amount}}00,
+                "singleUseCustomerToken": "SPFAB1cA5iwdu48H",
                 "locale": "en_US",
                 "customer": {
                     "firstName": "{{first_name}}",
