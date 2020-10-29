@@ -4,13 +4,16 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 # Create your views here.
-from users.forms import UserForm
+from users.forms import UserForm, CheckoutForm
 
 
 def dashboard(request):
     if request.method == 'POST':
-        amount = request.POST['amount']
-        print(amount)
+        checkout_form = CheckoutForm(request.POST)
+        if checkout_form.is_valid():
+            amount = checkout_form.cleaned_data['amount']
+            print('amount....', amount)
+            return render(request, 'checkout.html', {'amount': amount})
     return render(request, 'dashboard.html')
 
 
@@ -40,9 +43,10 @@ def signin(request):
         if user:
             if user.is_active:
                 login(request, user)
-                return redirect('user:index')
+                return redirect('checkout:checkout')
             else:
                 return HttpResponse('Your account is not active')
+        return render(request, 'signin.html')
     else:
         return render(request, 'signin.html')
 

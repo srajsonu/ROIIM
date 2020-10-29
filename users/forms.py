@@ -8,3 +8,9 @@ class UserForm(forms.ModelForm):
     class Meta():
         model = User
         fields = ('first_name', 'last_name', 'username', 'email', 'password')
+
+class CheckoutForm(forms.Form):
+    amount = forms.IntegerField()
+
+    class Meta():
+        fields = ['amount']
