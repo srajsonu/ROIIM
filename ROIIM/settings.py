@@ -122,5 +122,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#for heroku deployment
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# #for heroku deployment
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# #Activate Django-heroku
+# django_on_heroku.settings(locals())

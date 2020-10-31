@@ -17,3 +17,7 @@ def checkout(request):
         'email': user.email
     }
     return render(request, 'checkout.html', context)
+
+@login_required
+def payment_successful(request):
+    return render(request, 'payment_successful.html')
